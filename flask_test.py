@@ -5,14 +5,14 @@ app = Flask(__name__)
 
 @app.route("/olamundo")
 def hello_world():
-    var=f'Hello World'
-    return render_template('index.html',var=var)
+    msg=f'Hello World'
+    return render_template('index.html',var=msg)
 
 @app.route("/", methods=["GET","POST"])
 def the_game():
-    var = "Game: Adivinhe o número"
+    msg_title = "Game: Adivinhe o número"
     if request.method=="GET":
-        return render_template('game.html',var=var)
+        return render_template('game.html',var=msg_title)
     else:
         num = randint(1,20)
         palpite = int(request.form.get("name"))
